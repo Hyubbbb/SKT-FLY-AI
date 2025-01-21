@@ -1,0 +1,21 @@
+#0. Docker Hub 가입
+#1. Docker Hub에 리포지토리 만들기
+#2. 로그인
+docker login -u hyub
+# docker login
+
+#3. 도커 이미지 태그 적용
+docker image tag guestbook-app:latest hyub/guestbook:latest
+# v1을 할 수 있어
+docker image tag guestbook-app:latest hyub/guestbook:v1
+docker image tag guestbook-app:latest hyub/guestbook:v2
+
+#4. Docker Hub에 이미지 등록하기
+docker image push hyub/guestbook:latest
+## v1을 할 수 있어
+docker image push hyub/guestbook:v2
+
+# 5. Docker Hub 레포지토리 방명록 이미지 가져와서 실행하기
+# docker pull hyub/guestbook:v1
+docker container run -d -p 8080:3000 hyub/guestbook:v1
+
