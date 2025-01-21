@@ -9,7 +9,7 @@ def mat_access1(mat):
 def mat_access2(mat):
     for i in range(mat.shape[0]):
         for j in range(mat.shape[1]):
-            k = mat[i, j].item(i, j)
+            k = mat.item(i, j)
             mat.itemset((i, j), k * 2)
     
 mat1 = np.arange(10).reshape(2, 5)
