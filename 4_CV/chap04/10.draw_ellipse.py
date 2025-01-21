@@ -12,10 +12,10 @@ size = (150, 80)                                        # 타원 크기 - 반지
 cv2.circle(image, pt1, 1, 0, 2)                         # 타원의 중심점(2화소 원) 표시
 cv2.circle(image, pt2, 1, 0, 2)
 
-
-
-
+cv2.ellipse(image, pt1, size, 0, 30, 270, red, 4)
+cv2.ellipse(image, pt2, size, 45, -45, 90, yellow, 4)
 
 
 cv2.imshow("Draw Eclipse & Arc", image)
 cv2.waitKey()                                           # 키입력 대기
+cv2.destroyAllWindows()
