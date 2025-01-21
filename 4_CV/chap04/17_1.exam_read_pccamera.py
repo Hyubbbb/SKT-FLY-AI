@@ -24,7 +24,10 @@ while True:  # 무한 반복
         break  # 프레임 수신 오류시 종료
     if cv2.waitKey(30) >= 0:
         break
-    
+
+    # 원본 이미지 저장
+    cv2.imwrite('../images/original_frame.jpg', frame)
+
     # (200, 100) 좌표에서 100X200 크기의 영역 선택
     roi = frame[100:300, 200:400]
     # 녹색 성분 값 50 증가
