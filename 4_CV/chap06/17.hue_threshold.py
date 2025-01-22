@@ -1,20 +1,18 @@
 import numpy as np, cv2
 
 def onThreshold(value):
-    
-
-
-
+    result = cv2.threshold(image, value, 255, cv2.THRESH_BINARY)[1] # 이진화 (THRESH_BINARY)
+    # result = cv2.threshold(image, value, 255, cv2.THRESH_BINARY_INV)[1] # 이진화 (THRESH_BINARY_INV)
+    # result = cv2.threshold(image, value, 255, cv2.THRESH_TOZERO)[1] # 이진화 (THRESH_TOZERO)
+    # result = cv2.threshold(image, value, 255, cv2.THRESH_TOZERO_INV)[1] # 이진화 (THRESH_TOZERO_INV)
     cv2.imshow("result", result)
 
-BGR_img = cv2.imread("Source/chap06/images/color_space.jpg", cv2.IMREAD_COLOR) # 컬러 영상 읽기
-if BGR_img is None: raise Exception("영상 파일 읽기 오류")
+image = cv2.imread("4_CV/chap06/images/color_space.jpg", 
+                   cv2.IMREAD_GRAYSCALE) # 컬러 영상 읽기
+if image is None: raise Exception("영상 파일 읽기 오류")
 
-
-
-
-
-
-
-cv2.imshow("BGR_img", BGR_img)
+cv2.namedWindow("result")
+cv2.createTrackbar("threshold", "result", 128, 255, onThreshold)
+onThreshold(128) # 이진화 수행
+cv2.imshow("image", image)
 cv2.waitKey(0)
