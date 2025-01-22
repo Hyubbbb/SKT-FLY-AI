@@ -3,9 +3,9 @@ import numpy as np, cv2
 image = cv2.imread("4_CV/chap07/images/laplacian.jpg", cv2.IMREAD_GRAYSCALE)
 if image is None: raise Exception("영상파일 읽기 오류")
 
-data1 = [ [0,  -1,  0],
+data1 = [ [0,  1,  0],
           [-1, -4, -1],
-          [0,  -1,  0] ]
+          [0,  1,  0] ]
 data2 = [ [-1, -1, -1],
           [-1,  8, -1],
           [-1, -1, -1] ]
