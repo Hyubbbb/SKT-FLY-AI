@@ -21,8 +21,8 @@ th = [50, 100] # 초기 임계값
 cv2.namedWindow("result", cv2.WINDOW_NORMAL) # GPT
 
 cv2.createTrackbar("Hue_th1", "result", th[0], 255, onThreshold)
-cv2.createTrackbar("Hue_th2", "result", th[1], 255, onThreshold) # Error
-# cv2.createTrackbar("Hue_th2", "result", 0, 255, onThreshold) # 이렇게 실행하면 된다
+# cv2.createTrackbar("Hue_th2", "result", th[1], 255, onThreshold) # Error
+cv2.createTrackbar("Hue_th2", "result", 0, 255, onThreshold) # 이렇게 실행하면 된다
 print(th[0], th[1])
 
 onThreshold(th[0]) # 이진화 수행
