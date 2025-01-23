@@ -1,17 +1,20 @@
 import numpy as np, cv2
 
-image = cv2.imread('Source/Chap08/images/affine.jpg', cv2.IMREAD_GRAYSCALE)
+image = cv2.imread('4_CV/chap08/images/affine.jpg', cv2.IMREAD_GRAYSCALE)
 if image is None: raise Exception("영상 파일을 읽기 에러")
 
+center = (200, 200)
+angle, scale = 30, 1
+size = image.shape[::-1]
 
+pt1 = np.array([( 30, 70), (20, 240), (300, 110)], np.float32) # 변환 전 3개 좌표 지정
+pt2 = np.array([(120, 20), (10, 180), (280, 260)], np.float32) # 변환 후 3개 좌표 지정
 
+aff_mat = cv2.getAffineTransform(pt1, pt2) # 3개 좌표로 변환행렬 계산
+rot_mat = cv2.getRotationMatrix2D(center, angle, scale) # 회전 변환행렬 계산
 
-
-
-
-
-
-
+dst3 = cv2.warpAffine(image, aff_mat, size, cv2.INTER_LINEAR)
+dst4 = cv2.warpAffine(image, rot_mat, size, cv2.INTER_LINEAR)
 
 image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
 dst3 = cv2.cvtColor(dst3, cv2.COLOR_GRAY2BGR )
